@@ -27,11 +27,32 @@
       like to tell us.</p></div>
     </div>
     <div class="col-span-2 flex justify-center items-center">
+
+ 
+
     <form method="POST" action="" class="space-y-9 mr-40 ml-40 bg-red-00 border border-turtle-green p-10 rounded-tl-[60px] rounded-br-[60px] text-sm">
-                 <input type="text" name="name" id="name" placeholder="Enter your name" 
+    <div class="mt-5">
+    @if($errors->any())
+ <div class="space-y-3 pl-[10px] pb-10">
+   @foreach($errors->all() as $error)
+   <div class="text-red-400 ">{{$error}}</div>
+    @endforeach
+ </div>
+    @endif
+
+    @if(session()->has('error'))
+    <div class="alert alert-danger">{{session('error')}}</div>
+    @endif
+
+    @if(session()->has('success'))
+    <div class="alert alert-success text-green-500">{{session('success')}}</div>
+    @endif
+</div>
+    @csrf
+                 <input type="text" name="mentee_name" id="mentor_name" placeholder="Enter your name" 
                  class="shadow-sm w-[500px] pl-4 py-2 border border-turtle-green rounded-md mt-3 "><br/>
 
-                   <textarea name="" id="" cols="30" rows="10"  class="shadow-sm w-[500px] pl-4 py-2 h-[150px] border border-turle-green rounded-md mt-3 mb-6">Description</textarea><br>
+                   <textarea name="description" id="" cols="30" rows="10"  class="shadow-sm w-[500px] pl-4 py-2 h-[150px] border border-turle-green rounded-md mt-3 mb-6">Description</textarea><br>
 
                     <button type="submit" class="bg-turtle-green text-white font-semibold border border-white py-3 px-8 rounded-full mt-3 mb-6">MENTOR ME</button>
     </form>

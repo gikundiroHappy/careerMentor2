@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthManager;
 use App\Http\Controllers\MentorController;
+use App\Http\Controllers\MenteeController;
 
 
 /*
@@ -34,9 +35,9 @@ Route::get('/admindashboard', function () {
 
 Route::get('/listofmentors', [MentorController::class, 'listOfMentors'])->name('mentor.list');
 
-Route::get('/menteedashboard', function () {
-    return view('menteedashboard');
-})->name('menteedashboard');
+// Route::get('/menteedashboard', function () {
+//     return view('menteedashboard');
+// })->name('menteedashboard');
 
 Route::get('/mentors', [MentorController::class, 'meteeDashboard'])->name('metee.dashboard');
 
@@ -51,3 +52,6 @@ Route::get('/logout', [AuthManager::class, 'logout'])->name('logout');
 
 Route::get('/addmentor', [MentorController::class, 'addmentor'])->name('addmentor');
 Route::post('/addmentor', [MentorController::class, 'store'])->name('mentor.post');
+
+Route::get('/menteedashboard', [MenteeController::class, 'addMentee'])->name('menteedashboard');
+Route::post('/menteedashboard', [MenteeController::class, 'menteePost'])->name('mentee.post');

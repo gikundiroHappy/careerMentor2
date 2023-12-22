@@ -5,7 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class mentee extends Model
+class Mentee extends Model
 {
-    use HasFactory;
+    protected $fillable = [
+        'mentee_name','description',
+    ];
 }

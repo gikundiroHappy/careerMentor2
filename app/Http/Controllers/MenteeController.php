@@ -1,20 +1,30 @@
+<?php
 
+namespace App\Http\Controllers;
+use App\Models\Mentees; 
+// use App\Http\Controllers\Mentees;
+use App\Models\Mentor;
+use Illuminate\Http\Request;
 
-namespace App\Models;
-
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
-
-class Mentee extends Model
+class MenteeController extends Controller
 {
-    use HasFactory;
-
-    protected $fillable = [
-      
-    ];
-
-    public function user()
-    {
-        return $this->belongsTo(User::class);
+    function addMentee(){
+        return view('menteedashboard');
     }
+    
+    function menteePost(Request $request){
+     
+        $request->validate([
+            'mentee_name' => 'required',
+            'description' => 'required|string',
+        ]);
+
+        $data['name'] = $request->mentee_name;
+        $data['description'] = $request->description;
+     
+        $mentees = Mentees::create($data);
+
+        if (!$mentees) {
+                     }
+}
 }
