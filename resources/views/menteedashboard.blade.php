@@ -30,7 +30,7 @@
 
  
 
-    <form method="POST" action="" class="space-y-9 mr-40 ml-40 bg-red-00 border border-turtle-green p-10 rounded-tl-[60px] rounded-br-[60px] text-sm">
+    <form method="POST" action="{{ route('store-mentee') }}" class="space-y-9 mr-40 ml-40 bg-red-00 border border-turtle-green p-10 rounded-tl-[60px] rounded-br-[60px] text-sm">
     <div class="mt-5">
     @if($errors->any())
  <div class="space-y-3 pl-[10px] pb-10">

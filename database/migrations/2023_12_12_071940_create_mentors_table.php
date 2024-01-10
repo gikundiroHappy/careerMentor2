@@ -17,7 +17,6 @@ class CreateMentorsTable extends Migration
             $table->string('field'); // Add field of the mentor
             $table->string('location'); // Add location of the mentor
             $table->text('description')->nullable(); // Add description of the mentor (nullable)
-            // Add other mentor-specific fields as needed
             $table->timestamps();
         });
     }

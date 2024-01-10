@@ -53,5 +53,8 @@ Route::get('/logout', [AuthManager::class, 'logout'])->name('logout');
 Route::get('/addmentor', [MentorController::class, 'addmentor'])->name('addmentor');
 Route::post('/addmentor', [MentorController::class, 'store'])->name('mentor.post');
 
+// Route::get('/menteedashboard', [MenteeController::class, 'addMentee'])->name('menteedashboard');
+// Route::post('/menteedashboard', [MenteeController::class, 'menteePost'])->name('mentee.post');
+
 Route::get('/menteedashboard', [MenteeController::class, 'addMentee'])->name('menteedashboard');
-Route::post('/menteedashboard', [MenteeController::class, 'menteePost'])->name('mentee.post');
+Route::post('/menteedashboard', [MenteeController::class, 'menteePost'])->name('store-mentee');

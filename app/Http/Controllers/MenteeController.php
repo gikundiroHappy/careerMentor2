@@ -1,30 +1,29 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Mentees; 
-// use App\Http\Controllers\Mentees;
-use App\Models\Mentor;
+use App\Models\Mentee;
 use Illuminate\Http\Request;
 
 class MenteeController extends Controller
 {
-    function addMentee(){
+    function addmentee(){
         return view('menteedashboard');
     }
-    
-    function menteePost(Request $request){
-     
+
+    public function menteePost(Request $request)
+    {
         $request->validate([
-            'mentee_name' => 'required',
+            'mentee_name' => 'required|string',
             'description' => 'required|string',
+           
         ]);
 
-        $data['name'] = $request->mentee_name;
-        $data['description'] = $request->description;
-     
-        $mentees = Mentees::create($data);
+        Mentee::create([
+            'mentee_name' => $request->input('mentee_name'),
+            'description' => $request->input('description'),
+          
+        ]);
 
-        if (!$mentees) {
-                     }
-}
+        return redirect('/menteedashboard')->with('success', 'Data has been successfully stored.');
+    }
 }

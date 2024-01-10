@@ -28,8 +28,14 @@
     @foreach($mentors as $mentor)
        <div class=" border border-turtle-green w-[350px] py-10 px-6 space-y-5 rounded-tl-[30px] rounded-br-[30px]">
    
-        <h1>{{ $mentor->mentor_name }}</h1>
-        <h2>{{ $mentor->field }}</h2>
+       <div class="grid grid-cols-2">
+       @if($mentor->image_path)
+    <img src="{{ asset('storage/' . $mentor->image_path) }}" alt="Mentor Image" class=" w-[120px] h-[120px] mb-4 rounded-full">
+       @endif
+
+        <h1 class="flex items-center justify-end font-semibold">{{ $mentor->mentor_name }}</h1>
+        </div>
+        <h2 class="font-bold text-turtle-green text-lg">{{ $mentor->field }}</h2>
         <h3>{{ $mentor->location }}</h3>
         <p class="leading-6">{{ $mentor->description }}</p>
        </div>

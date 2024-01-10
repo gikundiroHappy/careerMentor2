@@ -4,26 +4,20 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMenteeTable extends Migration
+class CreateMenteesTable extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
     {
-        Schema::create('mentee', function (Blueprint $table) {
+        Schema::create('mentees', function (Blueprint $table) {
             $table->id();
             $table->string('mentee_name');
-            $table->text('description')->nullable(); 
+            $table->text('description');
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
-        Schema::dropIfExists('mentee');
+        Schema::dropIfExists('mentees');
     }
-};
+}

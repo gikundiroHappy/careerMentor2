@@ -11,7 +11,6 @@ class MentorController extends Controller
         return view('addmentor');
     }
 
-
     public function store(Request $request)
     {
         $request->validate([
@@ -20,6 +19,7 @@ class MentorController extends Controller
             'field' => 'required|string',
             'location' => 'required|string',
             'description' => 'required|string',
+            'image' => 'max:2048', // Adjust validation rules as needed
         ]);
 
         $user_id = auth()->id();
@@ -29,8 +29,14 @@ class MentorController extends Controller
         if ($existingMentor) {
             return redirect()->back()->with('error', 'A mentor with this email already exists.');
         }
+
+        $imagePath = null;
+
+if ($request->hasFile('image')) {
+    $imagePath = $request->file('image')->store('mentor_images', 'public');
+}
     
-        Mentor::create(array_merge($request->all(), ['user_id' => $user_id]));
+        Mentor::create(array_merge($request->all(), ['user_id' => $user_id, 'image_path' => $imagePath]));
 
         return redirect()->intended(('listofmentors'))->with('success', 'Mentor added successfully');
     }

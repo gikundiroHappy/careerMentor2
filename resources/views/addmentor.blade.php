@@ -23,9 +23,12 @@
 </div>
 
 <div class="flex justify-center items-center">     
-<form method="post" action="{{ route('mentor.post') }}">
+<form method="post" action="{{ route('mentor.post') }}" enctype="multipart/form-data">
 
         @csrf
+
+        <label for="image">Upload Image:</label><br>
+        <input type="file" id="image" name="image" class="mt-3 mb-6"><br>
 
             <label for="mentor_name">Mentor Name:</label><br>
             <input type="text" id="mentor_name" name="mentor_name"
