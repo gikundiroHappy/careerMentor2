@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Mentor;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class MentorController extends Controller
 {
@@ -41,9 +42,39 @@ if ($request->hasFile('image')) {
         return redirect()->intended(('listofmentors'))->with('success', 'Mentor added successfully');
     }
 
-    public function listOfMentors()
+    // public function listOfMentors()
+    // {
+    //     $mentors = Mentor::all();
+
+    //     return view('list_of_mentors', compact('mentors'));
+    // }
+    public function listOfMentors(Request $request)
     {
-        $mentors = Mentor::all();
+        $query = Mentor::query();
+
+        if ($request->has('sort')) {
+            $sortField = $request->get('sort');
+            $sortDirection = $request->get('direction', 'asc');
+
+            $query->orderBy($sortField, $sortDirection);
+        }
+
+        if ($request->has('search')) {
+            $searchTerm = $request->get('search');
+            $query->where('mentor_name', 'like', '%' . $searchTerm . '%')
+                  ->orWhere('field', 'like', '%' . $searchTerm . '%')
+                  ->orWhere('location', 'like', '%' . $searchTerm . '%');
+        }
+
+        $mentors = $query->get();
+
+        $role = Auth::user()->role; // Assuming you have a 'role' column in your users table
+
+        if ($role === 'admin') {
+            return view('mentor.list', compact('mentors'));
+        } elseif ($role === 'mentee') {
+            return view('mentors', compact('mentors'));
+        }
 
         return view('list_of_mentors', compact('mentors'));
     }

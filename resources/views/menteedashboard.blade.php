@@ -52,7 +52,7 @@
                  <input type="text" name="mentee_name" id="mentor_name" placeholder="Enter your name" 
                  class="shadow-sm w-[500px] pl-4 py-2 border border-turtle-green rounded-md mt-3 "><br/>
 
-                   <textarea name="description" id="" cols="30" rows="10"  class="shadow-sm w-[500px] pl-4 py-2 h-[150px] border border-turle-green rounded-md mt-3 mb-6">Description</textarea><br>
+                   <textarea name="description" placeholder="Description" id="" cols="30" rows="10"  class="shadow-sm w-[500px] pl-4 py-2 h-[150px] border border-turle-green rounded-md mt-3 mb-6"></textarea><br>
 
                     <button type="submit" class="bg-turtle-green text-white font-semibold border border-white py-3 px-8 rounded-full mt-3 mb-6">MENTOR ME</button>
     </form>

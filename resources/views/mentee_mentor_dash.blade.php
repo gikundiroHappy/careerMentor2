@@ -27,10 +27,16 @@
 </nav>
 
 <div class="font-abc ">
-    <h1 class="text-turtle-green text-xl font-semibold text-center my-5">List of mentors in Mentee page</h1>
+    <!-- <h1 class="text-turtle-green text-xl font-semibold text-center my-5">List of mentors in Mentee page</h1> -->
     <div class="flex gap-8 justify-end mr-20">
-        <p class="border border-turtle-green text-turtle-green font-bold py-2 px-6 rounded-md">Sort</p>
-        <input type="text" placeholder="Search....." class="border border-turtle-green py-2 px-6 rounded-md">
+        <!-- <p class="border border-turtle-green text-turtle-green font-bold py-2 px-6 rounded-md">Sort</p>
+        <input type="text" placeholder="Search....." class="border border-turtle-green py-2 px-6 rounded-md"> -->
+<form action="{{ route('mentor.list') }}" method="GET" class="flex gap-8 justify-end mr-20">
+
+    <p class="border border-turtle-green text-turtle-green font-bold py-2 px-6 rounded-md">Sort</p>
+    <input type="text" name="search" placeholder="Search....." class="border border-turtle-green py-2 px-6 rounded-md" value="{{ request('search') }}">
+
+</form>
     </div>
     <div class="flex flex-wrap gap-8 p-10 text-sm">
     @foreach($mentors as $mentor)

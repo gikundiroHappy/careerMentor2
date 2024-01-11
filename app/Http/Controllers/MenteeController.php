@@ -9,6 +9,10 @@ class MenteeController extends Controller
     function addmentee(){
         return view('menteedashboard');
     }
+     
+    function meteeDashboard(){
+        return view('mentors');
+    }
 
     public function menteePost(Request $request)
     {

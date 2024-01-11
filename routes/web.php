@@ -39,7 +39,7 @@ Route::get('/listofmentors', [MentorController::class, 'listOfMentors'])->name('
 //     return view('menteedashboard');
 // })->name('menteedashboard');
 
-Route::get('/mentors', [MentorController::class, 'meteeDashboard'])->name('metee.dashboard');
+Route::get('/mentors', [MentorController::class, 'meteeDashboard'])->name('mentors');
 
 
 Route::get('/login', [AuthManager::class, 'login'])->name('login');
