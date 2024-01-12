@@ -27,3 +27,4 @@ class MenteeController extends Controller
         return redirect('/menteedashboard')->with('success', 'Data has been successfully stored.');
     }
 }
+

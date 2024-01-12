@@ -30,7 +30,6 @@
 
     <div class="flex gap-8 justify-end mr-20">
         <!-- <p class="border border-turtle-green text-turtle-green font-bold py-2 px-6 rounded-md">Sort</p> -->
-        <!-- <input type="text" placeholder="Search....." class="border border-turtle-green py-2 px-6 rounded-md"> -->
         <form action="{{ route('meteeDashboard') }}" method="get">
         <input type="text" name="search" placeholder="Search....." class="border border-turtle-green py-2 px-6 rounded-md">
         <button type="submit" class="border border-turtle-green text-turtle-green font-bold py-2 px-6 rounded-md">Search</button>

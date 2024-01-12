@@ -59,3 +59,4 @@ Route::post('/addmentor', [MentorController::class, 'store'])->name('mentor.post
 
 Route::get('/menteedashboard', [MenteeController::class, 'addMentee'])->name('menteedashboard');
 Route::post('/menteedashboard', [MenteeController::class, 'menteePost'])->name('store-mentee');
+
