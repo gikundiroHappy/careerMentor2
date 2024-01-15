@@ -21,7 +21,7 @@ class MentorController extends Controller
             'field' => 'required|string',
             'location' => 'required|string',
             'description' => 'required|string',
-            'image' => 'max:2048', // Adjust validation rules as needed
+            'image' => 'max:2048', 
         ]);
 
         $user_id = auth()->id();
@@ -50,13 +50,6 @@ if ($request->hasFile('image')) {
         return view('list_of_mentors', compact('mentors'));
     }
     
-
-    // public function meteeDashboard()
-    // {
-    //     $mentors = Mentor::all();
-
-    //     return view('mentee_mentor_dash', compact('mentors'));
-    // }
   
 
     public function meteeDashboard(Request $request)

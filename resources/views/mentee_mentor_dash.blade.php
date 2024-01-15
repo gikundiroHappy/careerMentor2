@@ -21,15 +21,21 @@
           </div>
           <div class="flex gap-5 justify-end items-center pr-20">
           <p>{{auth()->user()->name}}</p>
-            <p class="text-sm font-semibold text-turtle-green"><a href="/logout">logout</a></p>
+        <span class="text-turtle-green cursor-pointer" id="logoutToggle">
+        <i class="fa-solid fa-circle-chevron-down"></i>
+        </span>
           </div>
+    </div>
+    <div class="absolute bg-white flex justify-end border border-turtle-green top-7 right-0 mt-8 mr-10 hidden" id="logoutSection">
+        <p class="flex justify-center items-end py-4 shadow-md bg-red-00  w-32 h-  w-ful text-sm font-semibold text-turtle-green">
+            <a href="/logout">Logout</a>
+        </p>
     </div>
 </nav>
 
 <div class="font-abc ">
 
     <div class="flex gap-8 justify-end mr-20">
-        <!-- <p class="border border-turtle-green text-turtle-green font-bold py-2 px-6 rounded-md">Sort</p> -->
         <form action="{{ route('meteeDashboard') }}" method="get">
         <input type="text" name="search" placeholder="Search....." class="border border-turtle-green py-2 px-6 rounded-md">
         <button type="submit" class="border border-turtle-green text-turtle-green font-bold py-2 px-6 rounded-md">Search</button>
@@ -56,5 +62,11 @@
 
     </div>
 </div>
+<script>
+    document.getElementById('logoutToggle').addEventListener('click', function() {
+        var logoutSection = document.getElementById('logoutSection');
+        logoutSection.classList.toggle('hidden');
+    });
+</script>
 </body>
 </html>

@@ -26,5 +26,12 @@ class MenteeController extends Controller
 
         return redirect('/menteedashboard')->with('success', 'Data has been successfully stored.');
     }
+
+     public function adminDashboard()
+    {
+        $mentees = Mentee::all();
+
+        return view('admindashboard', compact('mentees'));
+    }
 }
 
