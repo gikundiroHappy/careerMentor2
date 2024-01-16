@@ -70,9 +70,22 @@
                    <textarea name="description" placeholder="Description" id="" cols="30" rows="10"  class="shadow-sm w-[500px] pl-4 py-2 h-[150px] border border-turle-green rounded-md mt-3 mb-6"></textarea><br>
 
                     <button type="submit" class="bg-turtle-green text-white font-semibold border border-white py-3 px-8 rounded-full mt-3 mb-6">MENTOR ME</button>
+
+  
+
                 
     </form>
 
+    @if(session('matchingMentors'))
+    <div class="mt-6">
+        <h3>Matching Mentors:</h3>
+        <ul>
+            @foreach(session('matchingMentors') as $mentor)
+                <li>{{ $mentor->mentor_name }} - {{ $mentor->description }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
   </div>
 </div>
 <script>
